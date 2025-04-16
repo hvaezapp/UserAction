@@ -1,17 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using UserAction.Domain.Entity;
+namespace UserAction.DbContexts.Sql.SqlServer;
 
-namespace UserAction.DbContexts.Sql.SqlServer
+public class UserActionContext(DbContextOptions<UserActionContext> dbContextOptions) : DbContext(dbContextOptions)
 {
-    public class UserActionContext : DbContext
-    {
-        public UserActionContext(DbContextOptions<UserActionContext> options) : base(options)
-        {
-        }
+    public DbSet<UserActionHistory> UserActionHistory => Set<UserActionHistory>();
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            var assembly = typeof(Program).Assembly;
-            modelBuilder.ApplyConfigurationsFromAssembly(assembly);
-        }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

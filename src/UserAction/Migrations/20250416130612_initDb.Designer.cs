@@ -12,7 +12,7 @@ using UserAction.DbContexts.Sql.SqlServer;
 namespace UserAction.Migrations
 {
     [DbContext(typeof(UserActionContext))]
-    [Migration("20250416122730_initDb")]
+    [Migration("20250416130612_initDb")]
     partial class initDb
     {
         /// <inheritdoc />

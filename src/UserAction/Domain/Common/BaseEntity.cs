@@ -1,13 +1,12 @@
-﻿namespace UserAction.Domain.Common
+﻿namespace UserAction.Domain.Common;
+
+public class BaseDomainEntity<T>
 {
-    public class BaseDomainEntity<T>
-    {
-        public T Id { get; protected set; }
-        public DateTime CreatedOn { get; private set; }
-    }
+    public T Id { get; protected set; }
+    public DateTime CreatedOn { get; private set; }
+}
 
-    public abstract class BaseEntity : BaseDomainEntity<Guid>
-    {
+public abstract class BaseEntity : BaseDomainEntity<Guid>
+{
 
-    }
 }
