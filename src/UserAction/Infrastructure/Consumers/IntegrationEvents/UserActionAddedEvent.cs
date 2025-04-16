@@ -1,6 +1,6 @@
 ﻿using UserAction.Domain.Entity;
 
-namespace UserAction.Infrastructure.Consumers.IntegrationEvents;
+namespace Catalog.Infrastructure.IntegrationEvents;
 
-public record UserActionAddedEvent(Guid userId, string catalogSlug, string? categoryName, ActionType ActionType);
+public record UserActionAddedEvent(Guid userId, string? catalogSlug, string? categoryName, ActionType ActionType);
 
