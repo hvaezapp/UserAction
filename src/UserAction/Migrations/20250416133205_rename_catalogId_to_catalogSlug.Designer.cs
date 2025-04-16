@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UserAction.DbContexts.Sql.SqlServer;
 
@@ -11,9 +12,11 @@ using UserAction.DbContexts.Sql.SqlServer;
 namespace UserAction.Migrations
 {
     [DbContext(typeof(UserActionContext))]
-    partial class UserActionContextModelSnapshot : ModelSnapshot
+    [Migration("20250416133205_rename_catalogId_to_catalogSlug")]
+    partial class rename_catalogId_to_catalogSlug
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

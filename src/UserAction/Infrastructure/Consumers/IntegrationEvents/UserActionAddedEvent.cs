@@ -2,5 +2,5 @@
 
 namespace UserAction.Infrastructure.Consumers.IntegrationEvents;
 
-public record UserActionAddedEvent(Guid userId, Guid catalogId, string? categoryName, ActionType ActionType);
+public record UserActionAddedEvent(Guid userId, string catalogSlug, string? categoryName, ActionType ActionType);
 

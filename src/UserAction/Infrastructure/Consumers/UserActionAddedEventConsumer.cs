@@ -17,7 +17,7 @@ public class UserActionAddedEventConsumer : IConsumer<UserActionAddedEvent>
     public async Task Consume(ConsumeContext<UserActionAddedEvent> context)
     {
         var newUserActionHistory = new UserActionHistory(context.Message.userId , 
-                                                        context.Message.catalogId , 
+                                                        context.Message.catalogSlug, 
                                                         context.Message.categoryName ,
                                                         context.Message.ActionType);
 
