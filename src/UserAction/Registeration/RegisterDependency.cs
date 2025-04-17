@@ -6,14 +6,30 @@ namespace UserAction.Registeration;
 
 public static class RegisterDependency
 {
-    public static void RegisterSqlServer(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection RegisterSqlServer(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<UserActionContext>((serviceProvider, options) =>
         {
             options.UseSqlServer(configuration.GetConnectionString("SqlServer"));
 
         }, ServiceLifetime.Scoped);
+
+
+        return services;
     }
+
+
+    public static IServiceCollection RegisterRedis(this IServiceCollection services, IConfiguration configuration)
+    {
+
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration.GetValue<string>("CacheSettings:ConnectionString");
+        });
+
+        return services;
+    }
+
 
 
     public static IServiceCollection RegisterBroker(this IServiceCollection services, IConfiguration configuration)
